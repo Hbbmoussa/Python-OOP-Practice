@@ -1,20 +1,22 @@
 class Vehicle():
     color = 'white'
-    def __init__(self, name, max_speed, mileage):
+    def __init__(self, name, mileage,capacity):
         self.name = name
-        self.max_speed = max_speed
         self.mileage = mileage
+        self.capacity = capacity
+
+
+    def fare(self):
+        return self.capacity * 100
         
 
-#modelX = Vehicle("Tesla",234, 10)
-#print(modelX.max_speed,modelX.mileage)
-
 class Bus(Vehicle):
-    pass
+    def fare(self):
+        amount = super().fare()
+        amount += amount * 10 / 100
+        return amount
 
-class Car(Vehicle):
-    pass
+School_bus = Bus("School Volvo", 12, 50)
+print("Total Bus fare is:", School_bus.fare())
 
-car = Car('School bus',300,20 )
-print('Bus name:',car.name,',Speed:',car.max_speed,',mileage:',car.mileage, ',color:',car.color)
     
